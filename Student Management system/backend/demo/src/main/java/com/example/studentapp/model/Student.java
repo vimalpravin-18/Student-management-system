@@ -1,38 +1,33 @@
-package backend.demo.src.main.java.com.example.studentapp.model;
-private int id;
-private String name;
-private double mark;
+package com.example.studentapp.model;
 
-private Student() {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-}
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Student {
 
-public Student(int id, String name, double mark) {
-    this .id = id;
-    this.name = name;
-    this.mark = mark;
-}
+    private int id;
 
-public int getId(){
-    return id;
-}
+    @JsonProperty("name")
+    private String name;
 
-public void setId(int id) {
-    this.id = id;
-}
+    @JsonProperty("mark")
+    private double mark;
 
-public String GetName() {
-    return name;
-}
+    public Student() {}
 
-public void SetName(String name) {
-    this.name = name;
-}
+    public Student(int id, String name, double mark) {
+        this.id = id;
+        this.name = name;
+        this.mark = mark;
+    }
 
-public double GetMark() {
-    return mark;
-}
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-public void SetMark(double mark) {
-    this.mark = mark;
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public double getMark() { return mark; }
+    public void setMark(double mark) { this.mark = mark; }
 }
